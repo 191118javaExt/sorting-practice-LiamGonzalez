@@ -3,20 +3,18 @@ package com.revature.sort;
 public class MergeSort {
 	
 	public static void sort(int[] arr) {
-		int middle = (arr.length/2);
-		int [] leftSide = new int [middle];
-		int [] rightSide = new int [arr.length - middle];
-		
-		if(arr.length < 2) {
+		if (arr.length < 2) {
 			return;
 		}
+		int middle = (arr.length/2);
+		int [] leftSide = new int[middle];
+		int [] rightSide = new int [arr.length - middle];
 		
-		for(int i = 0; i < middle; i++) {
+		for (int i = 0; i<middle; i++) {
 			leftSide[i] = arr[i];
 		}
-		
-		for(int j = middle; j < arr.length - 1; j++) {
-			rightSide[j] = arr[j];
+		for (int i = middle; i<arr.length; i++) {
+			rightSide[i-middle] = arr[i];
 		}
 		
 		sort(leftSide);
@@ -29,12 +27,27 @@ public class MergeSort {
 		int x = 0;
 		int y = 0;
 		
-		while(x < left.length && y < right.length) {
-			if(left[x] < right[y]) {
-				//Left off here
-				
+		
+		while(x < right.length && y < left.length) {
+			if(left[y] < right[x]) {
+				arr[y+x] = left[y];
+				y++;
+			}
+			else
+			{
+				arr[y+x] = right[x];
+				x++;
 			}
 			
 		}
+		
+		for(; y < left.length; y++) {
+			arr[y+x] = left[y];
+		}
+		
+		for(; x < right.length; x++) {
+			arr[y+x] = right[x];
+		}
+		
 	}
 }
