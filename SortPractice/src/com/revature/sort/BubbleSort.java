@@ -7,9 +7,9 @@ public class BubbleSort {
 		
 		int n = arr.length; 
 		for(int i = 0; i < n - 1; i++) {
-			for(int j=1; j < n-i-1; j++ ) {
+			for(int j=1; j < n-i; j++ ) {
 				int a = arr[j];
-				if(arr[j] > arr[j-1]) {
+				if(arr[j] < arr[j-1]) {
 					
 					arr[j] = arr[j-1];
 					arr[j-1] = a;

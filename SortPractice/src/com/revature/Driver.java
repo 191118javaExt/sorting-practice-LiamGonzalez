@@ -22,6 +22,9 @@ public class Driver {
 		
 		long t1 = System.nanoTime();
 		BubbleSort.sort(arr);
+		for(int i=0; i<arr.length; i++) {
+			System.out.println("bubblesort: " + arr[i]);
+		}
 		long t2 = System.nanoTime();
 		
 		long bubblesort = t2 - t1;
@@ -29,6 +32,9 @@ public class Driver {
 		
 		t1 = System.nanoTime();
 		MergeSort.sort(arr2);
+		for(int i=0; i<arr2.length; i++) {
+			System.out.println("merge sort: " + arr2[i]);
+		}
 		t2 = System.nanoTime();
 		
 		long mergesort = t2 - t1;
